@@ -1,6 +1,6 @@
-import Text from "@/components/atoms/Text/index.tsx";
-import Button from "@/components/molecules/Button/index.tsx";
-import Input from "@/components/molecules/Input/index.tsx";
+import Text from "components/atoms/Text/index.tsx";
+import Button from "components/molecules/Button/index.tsx";
+import Input from "components/molecules/Input/index.tsx";
 
 const Login = () => {
   return (
