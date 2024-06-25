@@ -47,12 +47,13 @@ const Signup = () => {
         password,
       };
 
-      const response = await fetch("http://localhost:8080/api/signup", {
+      const response = await fetch("/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        credentials: "include", // 클라이언트와 서버가 통신할 때 쿠키와 같은 인증 정보 값을 공유하겠다는 설정
       });
 
       if (response.ok) {
