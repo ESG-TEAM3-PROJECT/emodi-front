@@ -3,8 +3,9 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": true, // 타입스크립트의 엄격한 타입 체크를 수행하기 위해 strict 옵션을 true로 한다.
     "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -12,16 +13,23 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "allowImportingTsExtensions": true,
+    "baseUrl": "src", // 기준 디렉터리를 src로 변경
     "plugins": [
       {
         "name": "next"
       }
     ],
+    "allowImportingTsExtensions": true, // typescript 에서 .ts, .tsx 확장자로 모듈 불러오는 것 허용, 이 옵션은 noEmit 이 true 여야 한다.
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    // 컴파일 대상 지정
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
