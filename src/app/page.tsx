@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <>
       <Header />
-      <ReactCalendar />
       <Text>메인페이지입니다.</Text>
     </>
   );

@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 // 이미지 경로를 상수로 선언
-const LOGO_IMAGE_PATH = "/assets/image/img_logo.svg";
+const LOGO_IMAGE_PATH = "/image/logo.svg";
 
 export type LogoProps = {
   width?: number;
