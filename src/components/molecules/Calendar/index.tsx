@@ -1,9 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { SetStateAction, useEffect, useState } from "react";
+// eslint-disable-next-line import/no-named-as-default
 import Calendar from "react-calendar";
 import './styles.css';
 import styled from "styled-components";
+
+const PROFILE_IMAGE_PATH = "/image/temp_user_profile.svg"
+
 
 const ImgUp = styled.img`
     position: absolute;
@@ -45,13 +50,13 @@ export default function ReactCalendar() {
 
   return (
     <CalContainerDiv>
-      <ImgUp src="/image/main_up_deco.svg"/>
-      <ImgDown src="/image/main_bottom_deco.svg"/>
+      <ImgUp src="/assets/image/main_up_deco.svg"/>
+      <ImgDown src="/assets/image/main_bottom_deco.svg"/>
       <ProfileImgDiv>
-        <img src="/image/temp_user_profile.svg"/>
+        <Image src={PROFILE_IMAGE_PATH} alt="profile" width={86} height={86}/>
       </ProfileImgDiv>
       <div style={{marginTop: "65px"}}>
-      <Calendar locale="en" onChange={onChange} value={value} minDetail="year" next2Label={null} prev2Label={null} tileContent={({ activeStartDate, date, view }) => view === 'month'  ? <button className="react-calendar__tile__emoji--btn"><div>&#x1F601;</div></button> : null} />
+      <Calendar locale="en" onChange={onChange} value={value} minDetail="year" next2Label={null} prev2Label={null} tileContent={({  view }) => view === 'month'  ? <button className="react-calendar__tile__emoji--btn"><div>&#x1F601;</div></button> : null} />
       </div>
     </CalContainerDiv>
   );
