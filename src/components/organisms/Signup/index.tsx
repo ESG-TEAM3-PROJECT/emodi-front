@@ -12,8 +12,34 @@ const Signup = () => {
   const [password, setPassword] = useState<string>("");
   const [checkPassword, setCheckPassword] = useState<string>("");
 
+  // 아이디 입력 이벤트
+  const handleUsernameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  // 비밀번호 입력 이벤트
+  const handlePasswordInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  // 비밀번호 재확인 입력 이벤트
+  const handleCheckPasswordInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckPassword(e.target.value);
+  };
+
+  // 회원가입 버튼 이벤트
   const handleSignup = async () => {
     try {
+      // 아이디 유효성 검사
+      if (!/^[a-zA-Z0-9-_]+$/.test(username)) {
+        warningAlert(
+          "회원가입 실패",
+          "올바른 아이디 형식으로 입력하세요.",
+          "확인"
+        );
+        return;
+      }
+
       // 비밀번호 유효성 검사
       if (!/^[a-zA-Z0-9-_]+$/.test(password)) {
         warningAlert(
@@ -24,17 +50,12 @@ const Signup = () => {
         return;
       }
 
-      // 입력하지 않은 란이 존재하지 않은 경우
-      if (!username || !password || !checkPassword) {
-        warningAlert(
-          "회원가입 실패",
-          "입력하지 않은 란이 존재합니다. 모든 필드에 정보를 입력해주세요.",
-          "확인"
-        );
-        return;
+      // 아이디를 입력하지 않은 경우
+      if (!username) {
+        warningAlert("회원가입 실패", "아이디를 입력해주세요.", "확인");
       }
 
-      // 비밀번호 재확인
+      // 비밀번호와 비밀번호를 재확인했을 때, 일치하지 않은 경우
       if (password !== checkPassword) {
         warningAlert("회원가입 실패", "비밀번호가 일치하지 않습니다.", "확인");
         return;
@@ -42,17 +63,21 @@ const Signup = () => {
 
       setErrorMessage("");
 
+      // 회원가입 정보
       const data = {
         username,
         password,
       };
 
-      const response = await fetch("http://localhost:8080/api/signup", {
+      console.log(data);
+
+      const response = await fetch("/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        // credentials: "include", // 클라이언트와 서버가 통신할 때 쿠키와 같은 인증 정보 값을 공유하겠다는 설정
       });
 
       if (response.ok) {
@@ -81,21 +106,21 @@ const Signup = () => {
         name="username"
         type="text"
         placeholder="아이디"
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={handleUsernameInput}
       />
       <Text>비밀번호</Text>
       <Input
         name="password"
         type="password"
         placeholder="비밀번호"
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handlePasswordInput}
       />
       <Text>비밀번호 재확인</Text>
       <Input
         name="checkPassword"
         type="password"
         placeholder="비밀번호 재확인"
-        onChange={(e) => setCheckPassword(e.target.value)}
+        onChange={handleCheckPasswordInput}
       />
       <Button onClick={handleSignup}>회원가입</Button>
     </>

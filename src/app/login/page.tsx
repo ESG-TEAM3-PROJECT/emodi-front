@@ -1,6 +1,6 @@
 "use client";
 
-import Login from "@/components/organisms/Login/index.tsx";
+import Login from "components/organisms/Login/index.tsx";
 
 const LoginPage = () => {
   return (
