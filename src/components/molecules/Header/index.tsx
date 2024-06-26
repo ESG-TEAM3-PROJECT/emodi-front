@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "components/atoms/Logo/index.tsx";
 import Text from "components/atoms/Text/index.tsx";
 import { successAlert } from "lib/sweetAlert.tsx";
@@ -9,10 +9,12 @@ import "./index.css";
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // const token = localStorage.getItem("token");
-  // if (token) {
-  //   setIsLoggedIn(true);
-  // }
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
