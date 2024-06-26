@@ -12,7 +12,7 @@ const ImgUp = styled.img`
     `
 const ImgDown = styled.img`
     position: absolute;
-    top: 70%;
+    top: 100%;
     transform: translateX(-50%);
     `
 const ProfileImgDiv = styled.div`
@@ -26,6 +26,8 @@ const ProfileImgDiv = styled.div`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);`
+const CalContainerDiv = styled.div`
+    position: absolute`
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -42,13 +44,15 @@ export default function ReactCalendar() {
   },[value])
 
   return (
-    <div>
+    <CalContainerDiv>
       <ImgUp src="/image/main_up_deco.svg"/>
       <ImgDown src="/image/main_bottom_deco.svg"/>
       <ProfileImgDiv>
         <img src="/image/temp_user_profile.svg"/>
       </ProfileImgDiv>
-      <Calendar locale="ko" onChange={onChange} value={value} tileContent={({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 0 ? <p>Its Sunday!</p> : null} />
-    </div>
+      <div style={{marginTop: "80px"}}>
+      <Calendar locale="en" onChange={onChange} value={value} minDetail="year" next2Label={null} prev2Label={null} tileContent={({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 0 ? <p>Its Sunday!</p> : null} />
+      </div>
+    </CalContainerDiv>
   );
 }

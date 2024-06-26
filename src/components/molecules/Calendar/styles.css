@@ -1,10 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+@font-face {
+  font-family: 'TmonMonsori';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .react-calendar {
-  width: 350px;
+  width: 100%;
   max-width: 100%;
   background: white;
   border: 1px solid #a0a096;
+  border-radius: 30px;
+  padding-top: 30px;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
+  background-color: #94C08D;
+  margin: 0 5px 0 5px;
+
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
 }
 
 .react-calendar--doubleView {
@@ -46,6 +63,10 @@
   margin-bottom: 1em;
 }
 
+.react-calendar__navigation__label {
+  font-size: 40px;
+}
+
 .react-calendar__navigation button {
   min-width: 44px;
   background: none;
@@ -62,8 +83,7 @@
 
 .react-calendar__month-view__weekdays {
   text-align: center;
-  text-transform: uppercase;
-  font: inherit;
+  font-family: 'TmonMonsori';
   font-size: 0.75em;
   font-weight: bold;
 }
