@@ -1,10 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
 import Text from "components/atoms/Text/index.tsx";
-
 import Button from "components/molecules/Button/index.tsx";
 import Input from "components/molecules/Input/index.tsx";
 import { successAlert, warningAlert } from "lib/sweetAlert.tsx";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const axios = require("axios");
 
 const Login = () => {
   const [username, setUsername] = useState<string>("");
