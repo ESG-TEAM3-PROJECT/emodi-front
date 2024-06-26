@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Text from "@/components/atoms/Text/index.tsx";
-import Button from "@/components/molecules/Button/index.tsx";
-import Input from "@/components/molecules/Input/index.tsx";
-import { successAlert, warningAlert } from "@/lib/sweetAlert.tsx";
+import Text from "components/atoms/Text/index.tsx";
+import Button from "components/molecules/Button/index.tsx";
+import Input from "components/molecules/Input/index.tsx";
+import { successAlert, warningAlert } from "lib/sweetAlert.tsx";
 
 const Signup = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
