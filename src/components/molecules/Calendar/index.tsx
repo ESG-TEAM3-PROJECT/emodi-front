@@ -51,7 +51,7 @@ export default function ReactCalendar() {
         <img src="/image/temp_user_profile.svg"/>
       </ProfileImgDiv>
       <div style={{marginTop: "80px"}}>
-      <Calendar locale="en" onChange={onChange} value={value} minDetail="year" next2Label={null} prev2Label={null} tileContent={({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 0 ? <p>Its Sunday!</p> : null} />
+      <Calendar locale="en" onChange={onChange} value={value} minDetail="year" next2Label={null} prev2Label={null} tileContent={({ activeStartDate, date, view }) => view === 'month'  ? <button className="react-calendar__tile__emoji--btn"><div>&#x1F601;</div></button> : null} />
       </div>
     </CalContainerDiv>
   );
