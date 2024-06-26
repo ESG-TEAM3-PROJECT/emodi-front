@@ -101,21 +101,21 @@ const Signup = () => {
 
   return (
     <>
-      <Text>아이디</Text>
+      <Text>회원가입</Text>
       <Input
         name="username"
         type="text"
         placeholder="아이디"
         onChange={handleUsernameInput}
       />
-      <Text>비밀번호</Text>
+
       <Input
         name="password"
         type="password"
         placeholder="비밀번호"
         onChange={handlePasswordInput}
       />
-      <Text>비밀번호 재확인</Text>
+
       <Input
         name="checkPassword"
         type="password"
@@ -123,6 +123,9 @@ const Signup = () => {
         onChange={handleCheckPasswordInput}
       />
       <Button onClick={handleSignup}>회원가입</Button>
+      <a href="/login">
+        <Text>로그인하러 가기</Text>
+      </a>
     </>
   );
 };
