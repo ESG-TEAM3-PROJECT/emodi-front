@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 
-const Button = styled.button`
+const LinkDiv = styled.div`
   border-radius: 20px;
-  border: 1px solid #94C08D;
-  background-color: #94C08D;
+  border: 1px solid #1087ff;
+  background-color: #1087ff;
   color: #FFFFFF;
   font-size: 1em;
   font-weight: bold;
@@ -12,6 +12,7 @@ const Button = styled.button`
   letter-spacing: 0.5em;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
-  cursor: pointer;`;
+  cursor: pointer;
+  text-align: center;`;
 
-export default Button;
+export default LinkDiv;
