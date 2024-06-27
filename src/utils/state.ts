@@ -8,3 +8,9 @@ export const selectedDateState = atom({
   default: "",
   effects_UNSTABLE: [persistAtom],
 });
+
+export const diaryIdState = atom({
+  key: "diaryIdState",
+  default: null,
+  effects_UNSTABLE: [persistAtom],
+});
