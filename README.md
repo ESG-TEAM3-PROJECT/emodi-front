@@ -11,9 +11,9 @@
 
 ### Github Repository Link
 
-> [https://github.com/ESG-TEAM3-PROJECT](https://github.com/ESG-TEAM3-PROJECT)
-[https://github.com/ESG-TEAM3-PROJECT/emodi-front](https://github.com/ESG-TEAM3-PROJECT/emodi-front)
-[https://github.com/ESG-TEAM3-PROJECT/emodi-back](https://github.com/ESG-TEAM3-PROJECT/emodi-back)
+> [https://github.com/ESG-TEAM3-PROJECT](https://github.com/ESG-TEAM3-PROJECT)  
+[https://github.com/ESG-TEAM3-PROJECT/emodi-front](https://github.com/ESG-TEAM3-PROJECT/emodi-front)  
+[https://github.com/ESG-TEAM3-PROJECT/emodi-back](https://github.com/ESG-TEAM3-PROJECT/emodi-back)  
 > 
 
 ## 💭 개발 동기
