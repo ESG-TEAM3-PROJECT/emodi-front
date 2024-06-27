@@ -37,7 +37,7 @@ const Login = () => {
       });
 
       if (response.data !== "no") {
-        localStorage.setItem("token", response.data);
+        localStorage.setItem("response", response.data);
         localStorage.setItem("username", data.username);
         successAlert("로그인 성공", "환영합니다", "확인").then(() => {
           window.location.href = "/";
