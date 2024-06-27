@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import Button from "components/molecules/Button/index.tsx";
 import Input from "components/molecules/Input/index.tsx";
 import { successAlert } from "lib/sweetAlert.tsx";
-import { selectedDateState } from "utils/state.ts";
+import { diaryIdState, selectedDateState } from "utils/state.ts";
 
 const Diary = () => {
   const selectedDate = useRecoilValue(selectedDateState);
+  const setDiaryId = useSetRecoilState(diaryIdState);
 
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
@@ -19,6 +20,7 @@ const Diary = () => {
     setTitle(e.target.value);
   };
 
+  // 내용 입력 이벤트
   const handleContentInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setContent(e.target.value);
   };
@@ -31,7 +33,6 @@ const Diary = () => {
         content,
       };
 
-      console.log(data);
       const response = await fetch("/api/diaries", {
         method: "POST",
         headers: {
@@ -41,6 +42,11 @@ const Diary = () => {
       });
 
       if (response.ok) {
+        const responseDate = await response.json();
+        const diaryId = responseDate.dairyDto.diaryId;
+        setDiaryId(diaryId);
+        localStorage.setItem("diaryId", diaryId);
+
         successAlert(
           "일기 작성 성공",
           "작성한 일기가 저장되었습니다.",
