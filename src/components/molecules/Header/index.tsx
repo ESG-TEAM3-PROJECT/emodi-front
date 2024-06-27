@@ -5,19 +5,20 @@ import Logo from "components/atoms/Logo/index.tsx";
 import Text from "components/atoms/Text/index.tsx";
 import { successAlert } from "lib/sweetAlert.tsx";
 import "./index.css";
+import { getJwtCookie } from "utils/authUtil.ts";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = getJwtCookie();
     if (token) {
       setIsLoggedIn(true);
     }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("response");
     localStorage.removeItem("username");
     setIsLoggedIn(false);
     successAlert("로그아웃 성공", "로그아웃이 완료되었습니다.", "확인").then(
