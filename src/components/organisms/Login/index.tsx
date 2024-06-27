@@ -1,7 +1,10 @@
+import Link from "next/link";
 import { useState } from "react";
-import Text from "components/atoms/Text/index.tsx";
+import H3 from "components/atoms/H3";
 import Button from "components/molecules/Button/index.tsx";
+import FormDiv from "components/molecules/FormDiv";
 import Input from "components/molecules/Input/index.tsx";
+import LinkDiv from "components/molecules/LinkDiv";
 import { successAlert, warningAlert } from "lib/sweetAlert.tsx";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const axios = require("axios");
@@ -55,8 +58,8 @@ const Login = () => {
   };
 
   return (
-    <>
-      <Text>로그인</Text>
+    <FormDiv>
+      <H3>로그인</H3>
 
       <Input
         name="username"
@@ -73,10 +76,10 @@ const Login = () => {
       />
 
       <Button onClick={handleLogin}>로그인</Button>
-      <a href="/signup">
-        <Text>회원가입하러 가기</Text>
-      </a>
-    </>
+      <Link href="/signup">
+        <LinkDiv>회원가입하러 가기</LinkDiv>
+      </Link>
+    </FormDiv>
   );
 };
 

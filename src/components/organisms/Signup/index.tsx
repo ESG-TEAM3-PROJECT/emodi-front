@@ -1,7 +1,10 @@
+import Link from "next/link";
 import { useState } from "react";
-import Text from "components/atoms/Text/index.tsx";
+import H3 from "components/atoms/H3"; 
 import Button from "components/molecules/Button/index.tsx";
+import FormDiv from "components/molecules/FormDiv";
 import Input from "components/molecules/Input/index.tsx";
+import LinkDiv from "components/molecules/LinkDiv";
 import { successAlert, warningAlert } from "lib/sweetAlert.tsx";
 
 const Signup = () => {
@@ -100,8 +103,8 @@ const Signup = () => {
   };
 
   return (
-    <>
-      <Text>회원가입</Text>
+    <FormDiv>
+      <H3>회원가입</H3>
       <Input
         name="username"
         type="text"
@@ -123,10 +126,10 @@ const Signup = () => {
         onChange={handleCheckPasswordInput}
       />
       <Button onClick={handleSignup}>회원가입</Button>
-      <a href="/login">
-        <Text>로그인하러 가기</Text>
-      </a>
-    </>
+      <Link href="/login">
+        <LinkDiv>로그인하러 가기</LinkDiv>
+      </Link>
+    </FormDiv>
   );
 };
 
